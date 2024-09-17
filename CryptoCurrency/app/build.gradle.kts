@@ -9,6 +9,9 @@ android {
     viewBinding {
         enable = true
     }
+    buildFeatures {
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.example.cryptocurrency"
         minSdk = 24
@@ -20,6 +23,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
     }
 
     buildTypes {
@@ -29,10 +33,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField ("String", "API_KEY", "your_api_key_here" )
-            debug {
-                buildConfigField ("String", "API_KEY", "your_api_key_here")
-            }
         }
     }
     compileOptions {
@@ -80,5 +80,4 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
-
 }

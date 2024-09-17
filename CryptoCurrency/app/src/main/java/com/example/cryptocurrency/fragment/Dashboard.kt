@@ -9,41 +9,48 @@ import com.example.cryptocurrency.R
 import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptocurrency.Domain.Cryptocurrency
+import com.example.cryptocurrency.Adapter.CryptocurrencyAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+
 class DashboardFragment : Fragment() {
 
-    private lateinit var viewModel: CryptocurrencyViewModel
+    private lateinit var cryptocurrencyAdapter: CryptocurrencyAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var coinList: List<Cryptocurrency>
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate layout của Fragment
+        val view = inflater.inflate(R.layout.dashboard_fragment, container, false)
 
-        // Khởi tạo ViewModel
-        viewModel = ViewModelProvider(this).get(CryptocurrencyViewModel::class.java)
+        // Tạo dữ liệu mẫu cho danh sách các đồng coin
+        coinList = listOf(
+            Cryptocurrency("Bitcoin",50000.0, 5.0, 1.45),
+            Cryptocurrency("Ethereum",3000.0, -2.5, 10.0),
+            Cryptocurrency("Litecoin",200.0, 1.2, 50.0),
+            Cryptocurrency("Bitcoin", 50000.0, 5.0, 1.45),
+            Cryptocurrency("Ethereum", 3000.0, -2.5, 10.0),
+            Cryptocurrency("Litecoin", 200.0, 1.2, 50.0),
+            Cryptocurrency("Bitcoin", 50000.0, 5.0, 1.45),
+            Cryptocurrency("Ethereum", 3000.0, -2.5, 10.0),
+            Cryptocurrency("Litecoin", 200.0, 1.2, 50.0),
+            Cryptocurrency("Bitcoin", 50000.0, 5.0, 1.45),
+            Cryptocurrency("Ethereum", 3000.0, -2.5, 10.0),
+            Cryptocurrency("Litecoin", 200.0, 1.2, 50.0),
+        )
 
-        // Quan sát dữ liệu cryptocurrency cụ thể
-        viewModel.cryptocurrencyData.observe(viewLifecycleOwner) { cryptocurrency ->
-            if (cryptocurrency != null) {
-                updateCryptocurrencyUI(cryptocurrency)
-            } else {
-                // Xử lý trường hợp lỗi hoặc dữ liệu null
-            }
-        }
+        // Thiết lập RecyclerView và Adapter
+        recyclerView = view.findViewById(R.id.recyclerView)
+        cryptocurrencyAdapter = CryptocurrencyAdapter(coinList)
+        recyclerView.adapter = cryptocurrencyAdapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
-        // Quan sát dữ liệu thị trường
-        viewModel.marketData.observe(viewLifecycleOwner) { marketData ->
-            updateMarketDataUI(marketData)
-        }
-
-        // Fetch dữ liệu từ API
-        viewModel.fetchCryptocurrencyData("BTC") // Ví dụ lấy dữ liệu cho Bitcoin
-        viewModel.fetchMarketData()
-    }
-
-    private fun updateCryptocurrencyUI(cryptocurrency: Cryptocurrency) {
-        // Cập nhật giao diện (TextView, ImageView, etc.) với dữ liệu của cryptocurrency
-    }
-
-    private fun updateMarketDataUI(marketData: List<Cryptocurrency>) {
-        // Cập nhật RecyclerView hoặc danh sách thị trường với dữ liệu của marketData
+        return view
     }
 }
+
 

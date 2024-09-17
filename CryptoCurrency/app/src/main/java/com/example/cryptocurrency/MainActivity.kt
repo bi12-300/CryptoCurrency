@@ -1,38 +1,43 @@
 package com.example.cryptocurrency
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.example.cryptocurrency.databinding.LayoutBinding
-import com.example.cryptocurrency.Domain.PortfolioItem
-import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
-import com.example.cryptocurrency.fragment.DashboardFragment
 import androidx.activity.viewModels
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cryptocurrency.Adapter.CryptocurrencyAdapter
+import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
+import com.example.cryptocurrency.Domain.Cryptocurrency
 
 class MainActivity : AppCompatActivity() {
 
-    // Khai báo biến binding cho View Binding
-    private lateinit var binding: LayoutBinding
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var cryptocurrencyAdapter: CryptocurrencyAdapter
+    private val cryptocurrencyViewModel: CryptocurrencyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.dashboard_fragment)
 
-        binding = LayoutBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // Setup RecyclerView and Adapter
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        loadFragment(DashboardFragment())
+        cryptocurrencyAdapter = CryptocurrencyAdapter(emptyList())
+        recyclerView.adapter = cryptocurrencyAdapter
 
+        // Observe data from ViewModel
+        cryptocurrencyViewModel.cryptocurrencyList.observe(this, Observer { coinList ->
+            // Update adapter with the new data
+            cryptocurrencyAdapter.updateData(coinList)
+        })
 
-    }
-
-    // Hàm để tải Fragment mới
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
+        // Fetch the cryptocurrency data in the ViewModel
+        cryptocurrencyViewModel.fetchCryptocurrencies()
     }
 }
+
 
 
 
