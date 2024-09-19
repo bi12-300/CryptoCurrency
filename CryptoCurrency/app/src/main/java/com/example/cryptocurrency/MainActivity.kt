@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.Adapter.CryptocurrencyAdapter
 import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
 import com.example.cryptocurrency.Domain.Cryptocurrency
+import android.widget.Button
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         // Fetch the cryptocurrency data in the ViewModel
         cryptocurrencyViewModel.fetchCryptocurrencies()
+
+        val secondActButton = findViewById<Button>(R.id.second_act_btn)
+        secondActButton.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 }
 
 
