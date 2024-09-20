@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".MainActivity"
-    android:background="@color/beige">
+    android:background="@drawable/gradient1">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -32,23 +32,15 @@
 
                 <Button
                     android:id="@+id/second_act_btn"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="top|end"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="22dp"
                     android:background="@drawable/baseline_settings_24"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contentDescription="button"/>
 
-                <ImageView
-                    android:id="@+id/nav_settings"
-                    android:layout_width="89dp"
-                    android:layout_height="56dp"
-                    android:layout_gravity="end|center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="16dp"
-                    android:contentDescription="Settings"
-                    android:src="@mipmap/setting_foreground" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -64,11 +56,11 @@
                         android:padding="0dp">
 
                         <ImageView
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
-                            android:src="@mipmap/logo2_foreground" />
+                            android:src="@drawable/btc" />
 
                     </LinearLayout>
 
@@ -163,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                app:menu="@menu/drawer_menu">
+                >
 
                 <!-- Header Layout -->
                 <LinearLayout
@@ -190,16 +182,56 @@
         </androidx.drawerlayout.widget.DrawerLayout>
     </RelativeLayout>
 
+
     <ScrollView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="0dp">
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
     </ScrollView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bisque"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintBaseline_toTopOf="parent"
+            app:menu="@menu/bottom_navi">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

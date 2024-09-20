@@ -1,6 +1,7 @@
 package com.example.cryptocurrency
 
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -8,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.Adapter.CryptocurrencyAdapter
 import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
-import com.example.cryptocurrency.Domain.Cryptocurrency
-import android.widget.Button
+import android.view.MenuItem
 import android.content.Intent
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,14 +30,22 @@ class MainActivity : AppCompatActivity() {
         cryptocurrencyAdapter = CryptocurrencyAdapter(emptyList())
         recyclerView.adapter = cryptocurrencyAdapter
 
-        // Observe data from ViewModel
         cryptocurrencyViewModel.cryptocurrencyList.observe(this, Observer { coinList ->
-            // Update adapter with the new data
             cryptocurrencyAdapter.updateData(coinList)
         })
 
-        // Fetch the cryptocurrency data in the ViewModel
         cryptocurrencyViewModel.fetchCryptocurrencies()
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setOnItemSelectedListener {  item: MenuItem ->
+            when (item.itemId) {
+                R.id.market-> {
+                    val intent = Intent(this, TrendActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
 
         val secondActButton = findViewById<Button>(R.id.second_act_btn)
         secondActButton.setOnClickListener {
@@ -44,7 +53,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 }
 
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:icon="@mipmap/home_foreground"
+        app:iconTint="@color/white"/>
+    <item android:title="Market"
+        android:id="@+id/market"
+        android:icon="@mipmap/trend_foreground"
+        app:iconTint="@color/white"/>
+    <item android:title="Book"
+        android:id="@+id/book"
+        android:icon="@mipmap/book_foreground"
+        app:iconTint="@color/white"/>
+</menu>

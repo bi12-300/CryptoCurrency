@@ -5,10 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@drawable/gradient1"
     tools:context=".SecondActivity">
 
-    <!-- res/layout/account_wallet_info_fragment.xml -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
