@@ -24,7 +24,6 @@ class CryptocurrencyAdapter(private var coinList: List<Cryptocurrency>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinViewHolder {
-        // Inflate layout item
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cryptocurrency, parent, false)
         return CoinViewHolder(view)
     }

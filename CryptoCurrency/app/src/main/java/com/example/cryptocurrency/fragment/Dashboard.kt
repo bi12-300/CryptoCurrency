@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cryptocurrency.R
-import com.example.cryptocurrency.ViewModel.CryptocurrencyViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.cryptocurrency.Domain.Cryptocurrency
 import com.example.cryptocurrency.Adapter.CryptocurrencyAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
