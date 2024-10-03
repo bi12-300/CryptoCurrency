@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.R
 
-class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class DepositAdapter : RecyclerView.Adapter<DepositAdapter.ViewHolder>() {
 
     // Danh sách dữ liệu (có thể thay thế bằng danh sách dữ liệu thực tế)
     private val dataList = listOf("BTC", "ETH", "LTC") // Ví dụ về tên ngắn

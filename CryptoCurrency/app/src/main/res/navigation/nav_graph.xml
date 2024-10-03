@@ -17,7 +17,11 @@
             app:destination="@id/depositFragment" />
         <action
             android:id="@+id/action_MainFragment_to_NewFragment"
-            app:destination="@id/newFragment" /> <!-- Màn hình New -->
+            app:destination="@id/newFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_setting_fragment2"
+            app:destination="@id/setting_fragment" />
+        <!-- Màn hình New -->
     </fragment>
 
     <!-- Màn hình đầu tư (Invest Fragment) -->
@@ -67,5 +71,9 @@
         android:id="@+id/newFragment"
         android:name="com.example.cryptocurrency.Fragment.New.NewFragment"
         android:label="New Fragment" />
-
+    <!-- Màn hình mới (Setting Fragment) -->
+    <fragment
+        android:id="@+id/setting_fragment"
+        android:name="com.example.cryptocurrency.Fragment.Setting.SettingFragment"
+        android:label="Setting"/>
 </navigation>

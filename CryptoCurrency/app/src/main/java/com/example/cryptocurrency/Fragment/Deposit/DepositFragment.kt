@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptocurrency.Adapter.MyAdapter
+import com.example.cryptocurrency.Adapter.DepositAdapter
 
 class DepositFragment : Fragment() {
 
@@ -26,7 +26,7 @@ class DepositFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Tạo và thiết lập adapter cho RecyclerView
-        val adapter = MyAdapter() // Thay thế MyAdapter bằng adapter của bạn
+        val adapter = DepositAdapter() // Thay thế MyAdapter bằng adapter của bạn
         recyclerView.adapter = adapter
 
         // Có thể thêm dữ liệu vào adapter tại đây nếu cần

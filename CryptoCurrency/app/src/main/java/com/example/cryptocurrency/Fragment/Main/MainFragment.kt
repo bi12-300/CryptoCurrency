@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
+
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +18,6 @@ class MainFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var cryptocurrencyAdapter: CryptocurrencyAdapter
     private val cryptocurrencyViewModel: CryptocurrencyViewModel by viewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +37,17 @@ class MainFragment : Fragment() {
         cryptocurrencyAdapter = CryptocurrencyAdapter(emptyList())
         recyclerView.adapter = cryptocurrencyAdapter
 
+        // Quan sát dữ liệu từ ViewModel
         cryptocurrencyViewModel.cryptocurrencyList.observe(viewLifecycleOwner) { coinList ->
             cryptocurrencyAdapter.updateData(coinList)
         }
 
+        // Gọi phương thức fetch để lấy dữ liệu tiền điện tử
+        fetchData()
+    }
+
+    private fun fetchData() {
         cryptocurrencyViewModel.fetchCryptocurrencies()
     }
 }
+

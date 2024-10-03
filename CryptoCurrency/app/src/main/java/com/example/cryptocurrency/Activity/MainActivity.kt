@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
     // Hàm để mở fragment
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.bottom_navigation, fragment) // Thay thế ID này với ID của ViewGroup trong layout
-            .commit()
-    }
-}
+            .replace(R.id.content_frame.
+                 fragment) // Thay thế ID này với ID của ViewGroup trong layout            .commit()    }}
+    \]cvb
