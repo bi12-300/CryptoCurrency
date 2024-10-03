@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainFragment">
+
+    <!-- Màn hình chính (Main Fragment) -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cryptocurrency.Fragment.Main.MainFragment"
+        android:label="Main Fragment">
+        <action
+            android:id="@+id/action_MainFragment_to_InvestFragment"
+            app:destination="@id/investFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_DepositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_NewFragment"
+            app:destination="@id/newFragment" /> <!-- Màn hình New -->
+    </fragment>
+
+    <!-- Màn hình đầu tư (Invest Fragment) -->
+    <fragment
+        android:id="@+id/investFragment"
+        android:name="com.example.cryptocurrency.Fragment.Invest.InvestFragment"
+        android:label="Invest Fragment">
+        <action
+            android:id="@+id/action_InvestFragment_to_InvestBuyFragment"
+            app:destination="@id/investBuyFragment" />
+    </fragment>
+
+    <!-- Màn hình mua đầu tư (Invest Buy Fragment) -->
+    <fragment
+        android:id="@+id/investBuyFragment"
+        android:name="com.example.cryptocurrency.Fragment.Invest.InvestBuyFragment"
+        android:label="Invest Buy Fragment">
+        <action
+            android:id="@+id/action_InvestBuyFragment_to_PaymentMethodFragment"
+            app:destination="@id/paymentMethodFragment" />
+    </fragment>
+
+    <!-- Màn hình phương thức thanh toán (Payment Method Fragment) -->
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.cryptocurrency.Fragment.PaymentMethodFragment"
+        android:label="Payment Method Fragment">
+        <action
+            android:id="@+id/action_PaymentMethodFragment_to_AddCreditCardFragment"
+            app:destination="@id/addCreditCardFragment" />
+    </fragment>
+
+    <!-- Màn hình thêm thẻ tín dụng (Add Credit Card Fragment) -->
+    <fragment
+        android:id="@+id/addCreditCardFragment"
+        android:name="com.example.cryptocurrency.Fragment.AddCreditCardFragment"
+        android:label="Add Credit Card Fragment" />
+
+    <!-- Màn hình nạp tiền (Deposit Fragment) -->
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.example.cryptocurrency.Fragment.Deposit.DepositFragment"
+        android:label="Deposit Fragment" />
+
+    <!-- Màn hình mới (New Fragment) -->
+    <fragment
+        android:id="@+id/newFragment"
+        android:name="com.example.cryptocurrency.Fragment.New.NewFragment"
+        android:label="New Fragment" />
+
+</navigation>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
+    tools:context=".Activity.MainActivity"
     android:layout_margin="8dp"
     android:background="@drawable/chart_item_container">
 

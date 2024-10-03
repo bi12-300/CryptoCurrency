@@ -1,4 +1,4 @@
-package com.example.cryptocurrency.fragment
+package com.example.cryptocurrency.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

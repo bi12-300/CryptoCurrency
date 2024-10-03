@@ -6,20 +6,20 @@
         android:id="@+id/home"
         android:icon="@mipmap/home_foreground"
         app:iconTint="@color/white"/>
-    <item android:title="Market"
-        android:id="@+id/market"
+    <item android:title="Bảng tin"
+        android:id="@+id/thenew"
         android:icon="@mipmap/trend_foreground"
         app:iconTint="@color/white"/>
     <item android:title="Giao dịch"
-        android:id="@+id/trade"
+        android:id="@+id/deposit"
         android:icon="@mipmap/book_foreground"
         app:iconTint="@color/white"/>
     <item android:title="Đầu tư"
-        android:id="@+id/Invest"
-        android:icon="@mipmap/book_foreground"
+        android:id="@+id/invest"
+        android:icon="@mipmap/invest"
         app:iconTint="@color/white"/>
     <item android:title=""
         android:id="@+id/setting"
-        android:icon="@mipmap/book_foreground"
+        android:icon="@mipmap/user"
         app:iconTint="@color/white"/>
 </menu>
