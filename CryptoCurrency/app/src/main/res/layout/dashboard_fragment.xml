@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity"
+    tools:context=".activity.MainActivity"
     android:background="@drawable/gradient1">
 
     <!-- Top Navigation Bar with Logo -->
@@ -133,6 +133,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/textView3" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
@@ -140,9 +141,22 @@
                         android:layout_margin="8dp"
                         android:layout_weight="1"
                         tools:listitem="@layout/item_cryptocurrency" />
+                    <Button
+                        android:id="@+id/button_load_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Load Data"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@drawable/baseline_update_24"
+                        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
+
 
         <!-- Navigation Drawer -->
         <com.google.android.material.navigation.NavigationView

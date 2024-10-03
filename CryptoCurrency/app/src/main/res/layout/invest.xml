@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     android:background="@drawable/gradient1"
-    tools:context="Fragment.Invest.InvestFragment">
+    tools:context="fragment.invest.InvestFragment">
 
     <!-- Navigation bar layout -->
     <LinearLayout

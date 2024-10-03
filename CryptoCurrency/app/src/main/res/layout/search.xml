@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/gradient1"
     android:padding="16dp"
-    tools:context=".Fragment.SearchFragment">
+    tools:context=".fragment.SearchFragment">
 
     <!-- Top Navigation Bar -->
     <androidx.appcompat.widget.Toolbar

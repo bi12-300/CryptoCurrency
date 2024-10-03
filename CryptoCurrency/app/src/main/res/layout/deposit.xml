@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@drawable/gradient1"
-    tools:context=".Fragment.Deposit.DepositFragment"
+    tools:context=".fragment.deposit.DepositFragment"
     >
 
     <!-- Navigation bar layout -->

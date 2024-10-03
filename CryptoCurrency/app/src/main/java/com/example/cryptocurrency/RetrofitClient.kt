@@ -17,13 +17,4 @@ object RetrofitClient {
             .addInterceptor(loggingInterceptor)
             .build()
     }
-
-    // Tạo Retrofit instance
-    val instance: Retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
 }
