@@ -20,7 +20,6 @@ class SettingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = SettingBinding.inflate(inflater, container, false)
-
         binding.buttonBack.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }

@@ -1,75 +1,54 @@
 package com.example.cryptocurrency.activity
-
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.cryptocurrency.R
-import com.example.cryptocurrency.fragment.Main.MainFragment
-import com.example.cryptocurrency.fragment.invest.InvestFragment
-import com.example.cryptocurrency.fragment.deposit.DepositFragment
-import com.example.cryptocurrency.fragment.New.NewFragment
-import com.example.cryptocurrency.fragment.Setting.SettingFragment
-import com.example.cryptocurrency.viewModel.CryptocurrencyViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.view.MenuItem
+
 
 class MainActivity : AppCompatActivity() {
-
-    private val cryptocurrencyViewModel: CryptocurrencyViewModel by viewModels()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dashboard_fragment) // Sử dụng layout cho MainActivity
+        setContentView(R.layout.dashboard_fragment)
 
-        // Setup BottomNavigationView
+        // Khởi tạo NavController
+        navController = findNavController(R.id.nav_host_fragment)
+
+        // Thiết lập sự kiện cho BottomNavigationView
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
+        bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    // Navigate to MainFragment
-                    openFragment(MainFragment())
+                    navController.navigate(R.id.mainFragment)
                     true
                 }
-
                 R.id.thenew -> {
-                    // Navigate to NewFragment
-                    openFragment(NewFragment())
+                    navController.navigate(R.id.newFragment)
                     true
                 }
-
                 R.id.invest -> {
-                    // Navigate to InvestFragment
-                    openFragment(InvestFragment())
+                    navController.navigate(R.id.investFragment)
                     true
                 }
-
                 R.id.deposit -> {
-                    // Navigate to DepositFragment
-                    openFragment(DepositFragment())
+                    navController.navigate(R.id.depositFragment)
                     true
                 }
-
                 R.id.setting -> {
-                    // Navigate to SettingFragment
-                    openFragment(SettingFragment())
+                    navController.navigate(R.id.setting_fragment)
                     true
                 }
-
                 else -> false
             }
         }
 
-        // Mở fragment mặc định khi khởi động
+        // Thiết lập tab mặc định
         if (savedInstanceState == null) {
-            bottomNavigationView.selectedItemId = R.id.home // Chọn tab mặc định
+            bottomNavigationView.selectedItemId = R.id.home
         }
     }
-
-    // Hàm để mở fragment
-    private fun openFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.content_frame, fragment) // Replace with the correct ViewGroup ID
-            .commit()
-    }
 }
+

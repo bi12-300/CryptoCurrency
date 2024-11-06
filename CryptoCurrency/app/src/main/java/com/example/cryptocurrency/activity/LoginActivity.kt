@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cryptocurrency.R
+import com.example.cryptocurrency.activity.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 

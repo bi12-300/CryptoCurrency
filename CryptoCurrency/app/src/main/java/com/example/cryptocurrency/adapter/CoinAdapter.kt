@@ -10,10 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.R
 import com.example.cryptocurrency.domain.Cryptocurrency
 
-class CoinAdapter(private val context: Context, private var coinList: List<Cryptocurrency>) :
-    RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {
+class CoinAdapter(
+    private val context: Context,
+    private var coinList: List<Cryptocurrency>,
+    private val listener: OnCoinClickListener
+) : RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {
 
-    // ViewHolder đại diện cho mỗi item
+    interface OnCoinClickListener {
+        fun onCoinClick(coin: Cryptocurrency)
+    }
+
     class CoinViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val coinNameTextView: TextView = itemView.findViewById(R.id.textViewName)
         val coinAmountTextView: TextView = itemView.findViewById(R.id.amountTxt)
@@ -21,6 +27,12 @@ class CoinAdapter(private val context: Context, private var coinList: List<Crypt
         val coinChangeTextView: TextView = itemView.findViewById(R.id.percentTxt)
         val coinMarketCapTextView: TextView = itemView.findViewById(R.id.textViewMarketCap)
         val coinImageView: ImageView = itemView.findViewById(R.id.pic)
+
+        fun bind(coin: Cryptocurrency, listener: OnCoinClickListener) {
+            itemView.setOnClickListener {
+                listener.onCoinClick(coin)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinViewHolder {
@@ -31,8 +43,7 @@ class CoinAdapter(private val context: Context, private var coinList: List<Crypt
 
     override fun onBindViewHolder(holder: CoinViewHolder, position: Int) {
         val coin = coinList[position]
-
-        // Thiết lập dữ liệu cho các thành phần trong item layout
+        holder.bind(coin, listener) // Gọi phương thức bind và truyền listener
         holder.coinNameTextView.text = coin.name
         holder.coinAmountTextView.text = String.format("%.2f %s", coin.amount, coin.symbol)
         holder.coinBalanceTextView.text = String.format("$%,.2f", coin.price)
@@ -50,3 +61,4 @@ class CoinAdapter(private val context: Context, private var coinList: List<Crypt
         notifyDataSetChanged()
     }
 }
+

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -12,43 +11,83 @@ import com.example.cryptocurrency.R
 
 class AddCreditCardFragment : Fragment() {
 
+    private lateinit var firstNameEditText: EditText
+    private lateinit var lastNameEditText: EditText
+    private lateinit var cardNumberEditText: EditText
+    private lateinit var expiryDateEditText: EditText
+    private lateinit var cvvEditText: EditText
+    private lateinit var streetAddressEditText: EditText
+    private lateinit var postalCodeEditText: EditText
+    private lateinit var cityEditText: EditText
+    private lateinit var countryEditText: EditText
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.activity_add_credit_card, container, false)
 
-        // Ánh xạ các EditText
-        val firstNameEditText = view.findViewById<EditText>(R.id.editText_first_name)
-        val lastNameEditText = view.findViewById<EditText>(R.id.editText_last_name)
-        val cardNumberEditText = view.findViewById<EditText>(R.id.editText_card_number)
-        val expiryDateEditText = view.findViewById<EditText>(R.id.editText_expiry_date)
-        val cvvEditText = view.findViewById<EditText>(R.id.editText_cvv)
+        // Initialize EditTexts
+        firstNameEditText = view.findViewById(R.id.editText_first_name)
+        lastNameEditText = view.findViewById(R.id.editText_last_name)
+        cardNumberEditText = view.findViewById(R.id.editText_card_number)
+        expiryDateEditText = view.findViewById(R.id.editText_expiry_date)
+        cvvEditText = view.findViewById(R.id.editText_cvv)
+        streetAddressEditText = view.findViewById(R.id.editText_street_address)
+        postalCodeEditText = view.findViewById(R.id.editText_postal_code)
+        cityEditText = view.findViewById(R.id.editText_city)
+        countryEditText = view.findViewById(R.id.editText_country)
 
-        // Ánh xạ nút xác nhận
-        val saveCardButton = view.findViewById<Button>(R.id.button_save_card)
-        saveCardButton.setOnClickListener {
-            // Thực hiện xác nhận thông tin thẻ
-            if (validateInputs(firstNameEditText, lastNameEditText, cardNumberEditText, expiryDateEditText, cvvEditText)) {
-                // Xử lý thêm thẻ tín dụng ở đây
-                Toast.makeText(context, "Thẻ tín dụng đã được thêm!", Toast.LENGTH_SHORT).show()
-                // Điều hướng trở lại fragment trước đó hoặc đến fragment khác nếu cần
-                // findNavController().navigate(R.id.action_addCreditCardFragment_to_someOtherFragment)
-            }
-        }
+        // Set button listeners
+        view.findViewById<View>(R.id.button_save_card).setOnClickListener { saveCard() }
+        view.findViewById<View>(R.id.button_autofill_address).setOnClickListener { autofillAddress() }
 
         return view
     }
 
-    // Hàm kiểm tra thông tin đầu vào
-    private fun validateInputs(vararg fields: EditText): Boolean {
-        for (field in fields) {
-            if (field.text.isEmpty()) {
-                field.error = "Trường này không thể để trống"
-                return false
-            }
+    private fun saveCard() {
+        // Validate input
+        val firstName = firstNameEditText.text.toString().trim()
+        val lastName = lastNameEditText.text.toString().trim()
+        val cardNumber = cardNumberEditText.text.toString().trim()
+        val expiryDate = expiryDateEditText.text.toString().trim()
+        val cvv = cvvEditText.text.toString().trim()
+
+        if (firstName.isEmpty() || lastName.isEmpty()) {
+            showToast("Vui lòng nhập họ tên.")
+            return
         }
-        return true
+
+        if (cardNumber.length != 16 || !cardNumber.all { it.isDigit() }) {
+            showToast("Số thẻ không hợp lệ.")
+            return
+        }
+
+        if (!expiryDate.matches(Regex("^(0[1-9]|1[0-2])/[0-9]{2}\$"))) {
+            showToast("Ngày hết hạn không hợp lệ. Định dạng: MM/YY")
+            return
+        }
+
+        if (cvv.length != 3 || !cvv.all { it.isDigit() }) {
+            showToast("CVV phải có 3 chữ số.")
+            return
+        }
+
+        showToast("Thẻ đã được lưu thành công!")
+        // Add save logic here
+    }
+
+    private fun autofillAddress() {
+        // Simple autofill example
+        streetAddressEditText.setText("123 Nguyễn Thị Minh Khai")
+        postalCodeEditText.setText("700000")
+        cityEditText.setText("TP. Hồ Chí Minh")
+        countryEditText.setText("Việt Nam")
+
+        showToast("Đã tự động điền địa chỉ!")
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

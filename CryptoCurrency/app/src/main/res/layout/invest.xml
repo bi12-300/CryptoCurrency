@@ -41,10 +41,6 @@
             app:tint="@android:color/white"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"/>
-
-
-
-
     </LinearLayout>
 
     <!-- Number Invest layout -->
@@ -58,7 +54,7 @@
         android:background="@drawable/chart_item_container"
         app:layout_constraintTop_toBottomOf="@+id/nav_invest"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">>
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/total"
@@ -106,16 +102,16 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- RecyclerView for list items -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_margin="16dp"
+    <!-- NavHostFragment để quản lý Navigation -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"
         app:layout_constraintTop_toBottomOf="@id/ValueInvested"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_invest" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
