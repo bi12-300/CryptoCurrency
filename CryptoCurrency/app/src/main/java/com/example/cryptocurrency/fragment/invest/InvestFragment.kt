@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.cryptocurrency.databinding.InvestBinding
 import com.example.cryptocurrency.R
 
@@ -27,13 +26,21 @@ class InvestFragment : Fragment(R.layout.invest) {
 
         // Điều hướng tới InvestAddFragment khi nhấn "Nạp tiền"
         binding.buttonInvest.setOnClickListener {
-            findNavController().navigate(R.id.action_InvestFragment_to_InvestAddFragment)
+            val fragment = InvestAddFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment) // `fragment_container` là ID của container layout
+                .addToBackStack(null)
+                .commit()
         }
 
-        // Điều hướng tới InvestBuyFragment khi nhấn "Buy"
         binding.buttonWithdraw.setOnClickListener {
-            findNavController().navigate(R.id.action_InvestFragment_to_InvestBuyFragment)
+            val fragment = InvestBuyFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
+
     }
 
     override fun onDestroyView() {

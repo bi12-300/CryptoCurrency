@@ -10,12 +10,14 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.cryptocurrency.R
+
 class InvestBuyFragment : Fragment() {
 
     private lateinit var editTextAmount: EditText
     private lateinit var spinnerCurrency: Spinner
     private lateinit var conversionResult: TextView
     private lateinit var buyButton: Button
+    private lateinit var payment: Button // Thêm buttonInvest
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,7 @@ class InvestBuyFragment : Fragment() {
         spinnerCurrency = view.findViewById(R.id.spinner_currency)
         conversionResult = view.findViewById(R.id.conversion_result)
         buyButton = view.findViewById(R.id.button_buy_coin) // Đảm bảo ID này đúng
+        payment = view.findViewById(R.id.button_select_payment_method) // Thêm dòng này
 
         // Gắn sự kiện cho nút "Buy"
         buyButton.setOnClickListener {
@@ -43,6 +46,15 @@ class InvestBuyFragment : Fragment() {
                 // Hiển thị kết quả quy đổi
                 conversionResult.text = String.format("%.4f BTC", resultInCrypto)
             }
+        }
+
+        // Gắn sự kiện cho buttonInvest để chuyển sang AddCreditCardFragment
+        payment.setOnClickListener {
+            val fragment = AddCreditCardFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment) // ID của container layout trong MainActivity
+                .addToBackStack(null)
+                .commit()
         }
 
         return view
