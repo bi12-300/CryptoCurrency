@@ -49,7 +49,7 @@
 
     <!-- Profile and Finance Information -->
     <androidx.constraintlayout.widget.ConstraintLayout
-android:id="@+id/profile_finance_container"
+        android:id="@+id/profile_finance_container"
         android:layout_width="0dp"
         android:layout_height="160dp"
         android:layout_margin="16dp"
