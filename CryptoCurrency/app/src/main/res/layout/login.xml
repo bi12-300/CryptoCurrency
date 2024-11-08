@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/gradient1"
-    tools:context=".MainActivity">
+    tools:context=".fragment.LoginFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

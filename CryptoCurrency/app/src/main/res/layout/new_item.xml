@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/chart_item_container"
+        android:padding="16dp">
+
+        <!-- Logo và thông tin người đăng, cùng với nút Theo dõi và Cài đặt -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Logo người đăng -->
+            <ImageView
+                android:id="@+id/post_logo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/profile2_round"
+                android:contentDescription="Logo người đăng" />
+
+            <!-- Tên và thời gian đăng -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toEndOf="@id/post_logo"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/post_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Tên người đăng"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/post_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 giờ trước"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <!-- Nút Theo dõi hình bầu dục -->
+            <Button
+                android:id="@+id/follow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/brown"
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_shape"
+                android:text="Theo dõi"
+                android:textColor="@color/white"
+                android:padding="8dp" />
+
+            <!-- Nút Setting (3 chấm) -->
+            <ImageButton
+                android:id="@+id/settings_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_toStartOf="@id/follow_button"
+                android:layout_marginEnd="8dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/baseline_more_vert_24"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Settings" />
+
+        </RelativeLayout>
+
+        <!-- Tiêu đề bài viết -->
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Tiêu đề bài viết"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Nội dung bài viết -->
+        <TextView
+            android:id="@+id/post_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Nội dung bài viết"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Hình ảnh đính kèm -->
+        <ImageView
+            android:id="@+id/post_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/spgt6kng_mid"
+            android:contentDescription="Hình ảnh bài viết" />
+
+        <!-- Nút Like, Share, và Comment -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <!-- Nút Like -->
+            <ImageButton
+                android:id="@+id/button_like"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/like_foreground"
+                android:scaleType="centerInside"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Like"
+                android:layout_marginEnd="16dp" />
+
+            <!-- Nút Share -->
+            <ImageButton
+                android:id="@+id/button_share"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/send_foreground"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Share"
+                android:layout_marginEnd="16dp" />
+
+            <!-- Nút Comment -->
+            <ImageButton
+                android:id="@+id/button_comment"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="8dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/comment_foreground"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Comment" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

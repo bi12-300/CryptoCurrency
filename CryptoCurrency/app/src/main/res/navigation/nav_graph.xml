@@ -1,0 +1,99 @@
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cryptocurrency.fragment.main.MainFragment"
+        android:label="Main Fragment">
+        <action
+            android:id="@+id/action_MainFragment_to_InvestFragment"
+            app:destination="@id/investFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_DepositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_NewFragment"
+            app:destination="@id/newFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_setting_fragment2"
+            app:destination="@id/setting_fragment" />
+        <!-- Thêm action đến CoinDetailFragment -->
+    </fragment>
+
+    <fragment
+        android:id="@+id/investFragment"
+        android:name="com.example.cryptocurrency.fragment.invest.InvestFragment"
+        android:label="Invest Fragment">
+        <action
+            android:id="@+id/action_InvestFragment_to_InvestAddFragment"
+            app:destination="@id/investAddFragment" />
+        <action
+            android:id="@+id/action_InvestFragment_to_InvestBuyFragment"
+            app:destination="@id/investBuyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/investAddFragment"
+        android:name="com.example.cryptocurrency.fragment.invest.InvestAddFragment"
+        android:label="Invest Add Fragment" />
+
+    <fragment
+        android:id="@+id/investBuyFragment"
+        android:name="com.example.cryptocurrency.fragment.invest.InvestBuyFragment"
+        android:label="Invest Buy Fragment">
+        <action
+            android:id="@+id/action_InvestBuyFragment_to_PaymentMethodFragment"
+            app:destination="@id/paymentMethodFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.cryptocurrency.fragment.PaymentMethodFragment"
+        android:label="Payment Method Fragment">
+        <action
+            android:id="@+id/action_PaymentMethodFragment_to_AddCreditCardFragment"
+            app:destination="@id/addCreditCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCreditCardFragment"
+        android:name="com.example.cryptocurrency.fragment.AddCreditCardFragment"
+        android:label="Add Credit Card Fragment" />
+
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.example.cryptocurrency.fragment.deposit.DepositFragment"
+        android:label="Deposit Fragment">
+        <action
+            android:id="@+id/action_DepositFragment_to_CoinDetailFragment"
+            app:destination="@id/coinDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newFragment"
+        android:name="com.example.cryptocurrency.fragment.New.NewFragment"
+        android:label="New Fragment" />
+
+    <fragment
+        android:id="@+id/setting_fragment"
+        android:name="com.example.cryptocurrency.fragment.Setting.SettingFragment"
+        android:label="Setting"/>
+
+    <fragment
+        android:id="@+id/coinDetailFragment"
+        android:name="com.example.cryptocurrency.fragment.deposit.CoinDetailFragment"
+        android:label="Coin Detail Fragment">
+        <argument
+            android:name="coin_name"
+            app:argType="string" />
+        <argument
+            android:name="coin_price"
+            app:argType="string" />
+        <argument
+            android:name="market_cap"
+            app:argType="string" />
+    </fragment>
+    <!-- Đảm bảo bạn đã định nghĩa CoinDetailFragment -->
+</navigation>

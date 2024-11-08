@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/gradient1"
+    tools:context=".fragment.AddCreditCardFragment">
+
+    <!-- Title Layout -->
+    <TextView
+        android:id="@+id/title_add_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm Thẻ Tín Dụng Mới"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"/>
+
+    <!-- NestedScrollView with Card Information Input Layout -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_add_card"
+        app:layout_constraintBottom_toTopOf="@+id/button_save_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <!-- Ensure NestedScrollView has one direct child: LinearLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Cardholder First Name Input -->
+            <EditText
+                android:id="@+id/editText_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Cardholder Last Name Input -->
+            <EditText
+                android:id="@+id/editText_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Họ"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Card Number Input -->
+            <EditText
+                android:id="@+id/editText_card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số Thẻ"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Expiry Date Input -->
+            <EditText
+                android:id="@+id/editText_expiry_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ngày Hết Hạn (MM/YY)"
+                android:inputType="date"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- CVV Input -->
+            <EditText
+                android:id="@+id/editText_cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="CVV"
+                android:inputType="numberPassword"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Billing Address Section -->
+            <TextView
+                android:id="@+id/textView_billing_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ thanh toán"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Street Address Input -->
+            <EditText
+                android:id="@+id/editText_street_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Địa chỉ chính xác"
+                android:inputType="textPostalAddress"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Postal Code Input -->
+            <EditText
+                android:id="@+id/editText_postal_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mã Thư Tín"
+                android:inputType="textPostalAddress"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- City Input -->
+            <EditText
+                android:id="@+id/editText_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Thành Phố"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Country Input -->
+            <EditText
+                android:id="@+id/editText_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quốc Gia"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textColorHint="@color/black"
+                android:background="@drawable/input"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Autofill Address Button -->
+            <Button
+                android:id="@+id/button_autofill_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tự động điền địa chỉ"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_background"
+                android:padding="16dp"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/button_save_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xác Nhận"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@color/black"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
