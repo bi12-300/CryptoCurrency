@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient1"
-    android:id="@+id/setting_fragment">
+    android:id="@+id/main"
+    android:background="@drawable/gradient1">
 
     <!-- Top Navigation Bar -->
     <LinearLayout
@@ -89,12 +89,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnSetting"
+            android:id="@+id/btnUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:drawablePadding="8dp"
-            android:text="Setting" />
+            android:text="User" />
 
         <Button
             android:id="@+id/btnPrivacy"
