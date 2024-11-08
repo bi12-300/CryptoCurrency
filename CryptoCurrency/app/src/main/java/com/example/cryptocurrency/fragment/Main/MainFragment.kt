@@ -39,13 +39,9 @@ class MainFragment : Fragment() {
 
         // Quan sát dữ liệu từ ViewModel
         cryptocurrencyViewModel.cryptocurrencyList.observe(viewLifecycleOwner) { coinList ->
-            cryptocurrencyAdapter.updateData(coinList)
-        }
-
-        // Thiết lập nút Load Data
-        val loadDataButton = view.findViewById<Button>(R.id.button_load_data)
-        loadDataButton.setOnClickListener {
-            fetchData() // Gọi API để load data khi nhấn nút
+            coinList?.let {
+                cryptocurrencyAdapter.updateData(it)
+            }
         }
 
         // Gọi phương thức fetch ban đầu để load dữ liệu khi fragment khởi tạo
@@ -56,3 +52,4 @@ class MainFragment : Fragment() {
         cryptocurrencyViewModel.fetchCryptocurrencies()
     }
 }
+

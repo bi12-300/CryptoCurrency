@@ -1,54 +1,65 @@
 package com.example.cryptocurrency.activity
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
 import com.example.cryptocurrency.R
+import com.example.cryptocurrency.fragment.Main.MainFragment
+import com.example.cryptocurrency.fragment.New.NewFragment
+import com.example.cryptocurrency.fragment.deposit.DepositFragment
+import com.example.cryptocurrency.fragment.invest.InvestFragment
+import com.example.cryptocurrency.fragment.Setting.SettingFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard_fragment)
 
-        // Khởi tạo NavController
-        navController = findNavController(R.id.nav_host_fragment)
+        // Initial fragment setup
+        if (savedInstanceState == null) {
+            replaceFragment(MainFragment()) // Replace with the initial fragment
+        }
 
-        // Thiết lập sự kiện cho BottomNavigationView
+        // Set up BottomNavigationView
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    navController.navigate(R.id.mainFragment)
+                    replaceFragment(MainFragment())
                     true
                 }
                 R.id.thenew -> {
-                    navController.navigate(R.id.newFragment)
+                    replaceFragment(NewFragment())
                     true
                 }
                 R.id.invest -> {
-                    navController.navigate(R.id.investFragment)
+                    replaceFragment(InvestFragment())
                     true
                 }
                 R.id.deposit -> {
-                    navController.navigate(R.id.depositFragment)
+                    replaceFragment(DepositFragment())
                     true
                 }
                 R.id.setting -> {
-                    navController.navigate(R.id.setting_fragment)
+                    replaceFragment(SettingFragment())
                     true
                 }
                 else -> false
             }
         }
 
-        // Thiết lập tab mặc định
+        // Default tab selection
         if (savedInstanceState == null) {
             bottomNavigationView.selectedItemId = R.id.home
         }
     }
-}
 
+    // Helper function to replace fragments
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+}
