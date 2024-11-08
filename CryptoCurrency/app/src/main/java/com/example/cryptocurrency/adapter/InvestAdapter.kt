@@ -8,8 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.R
 import com.example.cryptocurrency.domain.InvestItem
-// Lớp đại diện cho một mục đầu tư
-data class InvestItem(val name: String, val value: Double)
 
 class InvestAdapter(private val investList: List<InvestItem>) : RecyclerView.Adapter<InvestAdapter.InvestViewHolder>() {
 

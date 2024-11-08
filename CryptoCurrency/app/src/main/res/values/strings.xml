@@ -11,4 +11,7 @@
         <item>ETH</item>
         <!-- Add more currencies as needed -->
     </string-array>
+    <string name="openDrawer">Mở menu</string>
+    <string name="closeDrawer">Đóng menu</string>
 </resources>
+
