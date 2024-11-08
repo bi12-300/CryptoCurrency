@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="@drawable/chart_item_container"
+    android:gravity="center_vertical">
+
+    <!-- Coin logo -->
+    <ImageView
+        android:id="@+id/logo_coin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/btc"
+        android:layout_gravity="center_vertical" />
+
+    <!-- Coin info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"> <!-- Allow it to take remaining space -->
+
+        <!-- Coin short name -->
+        <TextView
+            android:id="@+id/coin_short_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="BTC"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Coin full name -->
+        <TextView
+            android:id="@+id/coin_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bitcoin"
+            android:textSize="14sp"
+            android:textColor="@android:color/background_dark" />
+    </LinearLayout>
+
+    <!-- Price and Percentage Layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:gravity="end">
+
+        <!-- Price TextView -->
+        <TextView
+            android:id="@+id/coin_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="$40,000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Percentage Change TextView -->
+        <TextView
+            android:id="@+id/coin_percentage_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="+5.25%"
+            android:textSize="14sp"
+            android:layout_marginEnd="16dp" />
+    </LinearLayout>
+</LinearLayout>
