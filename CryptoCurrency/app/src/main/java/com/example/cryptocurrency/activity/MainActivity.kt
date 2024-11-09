@@ -1,5 +1,6 @@
 package com.example.cryptocurrency.activity
 
+import PrivacyFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)  // Đảm bảo sử dụng layout đúng tên
+        setContentView(R.layout.activity_main) // Đảm bảo sử dụng layout đúng tên
+
 
         // Initial fragment setup
         if (savedInstanceState == null) {
@@ -74,5 +76,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commitAllowingStateLoss()
     }
+
+
 }
 

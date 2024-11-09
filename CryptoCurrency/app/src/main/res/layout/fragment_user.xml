@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title for Notification Settings -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cài đặt Thông báo"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Notification Switches -->
+    <Switch
+        android:id="@+id/transactionNotificationsSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thông báo giao dịch"
+        android:textSize="20sp" />
+
+    <Switch
+        android:id="@+id/securityAlertsSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cảnh báo bảo mật"
+        android:textSize="20sp" />
+
+    <Switch
+        android:id="@+id/marketUpdatesSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật thị trường"
+        android:textSize="20sp" />
+
+    <!-- Title for Language and Region Settings -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngôn ngữ và Khu vực"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Language and Currency Selection Spinners -->
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/language_options"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/currencySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/currency_options"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp" />
+
+</LinearLayout>
