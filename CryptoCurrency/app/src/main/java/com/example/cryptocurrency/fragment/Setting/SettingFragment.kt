@@ -1,5 +1,7 @@
 package com.example.cryptocurrency.fragment.Setting
 
+import PrivacyFragment
+import UserFragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater

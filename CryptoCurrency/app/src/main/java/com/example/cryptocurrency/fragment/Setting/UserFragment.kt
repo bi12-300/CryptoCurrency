@@ -1,60 +1,74 @@
-package com.example.cryptocurrency.fragment.Setting
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
 import com.example.cryptocurrency.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [UserFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UserFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_user, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment UserFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            UserFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        // Cài đặt Thông báo
+        val transactionNotificationsSwitch: Switch = view.findViewById(R.id.transactionNotificationsSwitch)
+        val securityAlertsSwitch: Switch = view.findViewById(R.id.securityAlertsSwitch)
+        val marketUpdatesSwitch: Switch = view.findViewById(R.id.marketUpdatesSwitch)
+
+        transactionNotificationsSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(requireContext(), "Đã bật thông báo giao dịch", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Đã tắt thông báo giao dịch", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        securityAlertsSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(requireContext(), "Đã bật cảnh báo bảo mật", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Đã tắt cảnh báo bảo mật", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        marketUpdatesSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(requireContext(), "Đã bật cập nhật thị trường", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Đã tắt cập nhật thị trường", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Ngôn ngữ và Cài đặt Khu vực
+        val languageSpinner: Spinner = view.findViewById(R.id.languageSpinner)
+        val currencySpinner: Spinner = view.findViewById(R.id.currencySpinner)
+
+        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedLanguage = parent.getItemAtPosition(position).toString()
+                Toast.makeText(requireContext(), "Đã chọn ngôn ngữ: $selectedLanguage", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Không làm gì nếu không có mục nào được chọn
+            }
+        }
+
+        currencySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedCurrency = parent.getItemAtPosition(position).toString()
+                Toast.makeText(requireContext(), "Đã chọn đơn vị tiền tệ: $selectedCurrency", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Không làm gì nếu không có mục nào được chọn
+            }
+        }
+
+        return view
     }
 }
