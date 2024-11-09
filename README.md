@@ -12,3 +12,4 @@ Members
 |BI12-305|Do Huu Nam|
 |BI12-144|Bui Ngoc Hai|
 |BI12-148|Hoang Hai|
+|BI12-217|Nguyen Dang Khoi|
