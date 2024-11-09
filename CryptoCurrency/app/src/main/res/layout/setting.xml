@@ -27,9 +27,11 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center_horizontal"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:textColorHighlight="@color/black"
+            />
 
         <ImageButton
             android:id="@+id/button_back"
@@ -94,7 +96,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:drawablePadding="8dp"
-            android:text="User" />
+            android:text="User"
+            android:textColor="@color/black"
+            />
 
         <Button
             android:id="@+id/btnPrivacy"
@@ -103,7 +107,9 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/button"
             android:drawablePadding="8dp"
-            android:text="Privacy" />
+            android:text="Privacy"
+            android:textColor="@color/black"
+            />
 
         <Button
             android:id="@+id/btnLanguage"
@@ -112,7 +118,9 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/button"
             android:drawablePadding="8dp"
-            android:text="Language" />
+            android:text="Language"
+            android:textColor="@color/black"
+            />
 
         <Button
             android:id="@+id/btnSignOut"
@@ -121,6 +129,8 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/button"
             android:drawablePadding="8dp"
-            android:text="Sign Out" />
+            android:text="Sign Out"
+            android:textColor="@color/black"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
